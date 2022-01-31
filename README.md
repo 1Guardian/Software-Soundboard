@@ -28,7 +28,7 @@ This is a Soundboard that a friend wanted for some reason, so I threw it togethe
     clone this repo (git clone) or download it as a zip
     
   Step 2:
-    navigate into directory and then navigate into 'CS4500 Project' (Has same dir name as another project because I'm lazy and this software is really only meant to ever build for me)
+    navigate into directory
     
   Step 3:
     Run: npm install
