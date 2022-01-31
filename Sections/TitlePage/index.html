@@ -179,7 +179,7 @@
         var parentPath = "file:///" + ipcRenderer.sendSync('get-Path', 'sync ping').replace(/\\/g, '/');
 
         //load the buttons lazily
-        setTimeout(function(){ loadButtons() }, 5000);
+        setTimeout(function(){ loadButtons() }, 1000);
         
         function setVolume(inVol) { 
           snd.volume = inVol;
