@@ -176,6 +176,7 @@
         var x = document.getElementById("myAudio");
         var snd = new Audio("toys.mp3");
         var mps = JSON.parse(ipcRenderer.sendSync('get-from-file', 'sync ping'))
+        var parentPath = "file:///" + ipcRenderer.sendSync('get-Path', 'sync ping').replace(/\\/g, '/');
 
         //load the buttons lazily
         setTimeout(function(){ loadButtons() }, 5000);
@@ -197,14 +198,14 @@
         }
         
         function showDiag(){
-            ipcRenderer.sendSync('copy-mp', 'sync ping')
+            document.getElementById('songname').value = ipcRenderer.sendSync('copy-mp', 'sync ping');
         }
 
         function makeButtons(input){
             if(!isNaN(input[1]))
-                var div = $('<button id="'+ "count" + count + '" onClick="setInput('+ "'"+input[0]+"'" +')" >' + icons[input[1]] + '</button>').appendTo('#holding');
+                var div = $('<button id="'+ "count" + count + '" onClick="setInput('+ "'"+parentPath + input[0]+"'" +')" >' + icons[input[1]] + '</button>').appendTo('#holding');
             else
-            var div = $('<button id="'+ "count" + count + '" onClick="setInput('+ "'"+input[0]+"'" +')" >' + input[1] + '</button>').appendTo('#holding');
+            var div = $('<button id="'+ "count" + count + '" onClick="setInput('+ "'"+parentPath + input[0]+"'" +')" >' + input[1] + '</button>').appendTo('#holding');
             count = count +1;
         }
 
