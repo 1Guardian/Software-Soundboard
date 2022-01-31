@@ -65,15 +65,22 @@ ipcMain.on('copy-mp', (event, arg) => {
 
   
   //open the file dialog
-  datapath = dialog.showOpenDialog({defaultPath:app.getPath("desktop"), buttonLabel:'Select Audio MP3 File'});
-
-  //copy to file
-  fs.copy("C:/buttons.txt", "D:/")
-  .then(() => console.log('success!'))
-  .catch(err => console.error(err))
-
+  dialog.showOpenDialog({
+    properties: ['openFile']
+    }).then((data) => {
+      fs.copy(data.filePaths[0], path.join(process.env.APPDATA, "/Software-Soundboard/Audio-Files/" + path.parse(data.filePaths[0]).base))
+      .then(() => event.returnValue = path.parse(data.filePaths[0]).base)
+      .catch(err => event.returnValue = "Error: " + err)
+    });
+  
+  
   // Synchronous event emmision
-  event.returnValue = "pong";
+
+})
+
+ipcMain.on('get-Path', (event, arg) => {
+
+  event.returnValue = path.join(process.env.APPDATA, "/Software-Soundboard/Audio-Files/");
 
 })
 
