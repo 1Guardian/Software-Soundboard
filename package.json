@@ -1,0 +1,44 @@
+{
+  "name": "Software-Soundboard",
+  "version": "1.0.0",
+  "description": "A Piece of software that makes soundboard noises with mp3's",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "startWithTransparentOption": "electron --enable-transparent-visuals .",
+    "startWithAllOptions": "electron --enable-transparent-visuals --disable-gpu .",
+    "pack": "electron-builder --dir",
+    "dist-win": "electron-builder --win portable",
+    "dist-nix": "electron-builder"
+  },
+  "keywords": [
+    "darts",
+    "algorithm",
+    "tutorial"
+  ],
+  "author": "Group 7",
+  "license": "GPLv3",
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "^22.14.5"
+  },
+  "build": {
+    "appId": "Software-Soundboard",
+    "mac": {
+      "category": "softwaresoundboard.app.game.executable"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS"
+    }
+  },
+  "dependencies": {
+    "electron-log": "^4.4.1",
+    "fs-extra": "^9.0.0"
+  }
+}
