@@ -19,10 +19,6 @@ This is a Soundboard that a friend wanted for some reason, so I threw it togethe
           IF YOU INSTALL NODEJS AND 'npm' IS NOT RECOGNIZED AS A COMMAND,
           YOU MAY NEED TO GET THE ENVIRONMENTAL VARIABLE FOR NODEJS MANUALLY.
           
-# Known Quirks
-  MACOS:
-      On OSX, there is a weird behavior with the font. It seems that Mac OS overrides the "marker" font that makes up most of the font used in the app. Changing the font name does not fix this, I believe it has something to do with how MacOS renders font in safari (since this uses a chromium webkit backend). The app is functionally fine, the font that is used is just not the one that is intended, or the one that is used in Windows, Linux, or any other version of Unix (BSD etc).
-      
 # Build Process
   Step 1:
     clone this repo (git clone) or download it as a zip
